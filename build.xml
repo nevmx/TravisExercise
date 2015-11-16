@@ -25,7 +25,7 @@
     </jar>
   </target>
 
-  <target name="test" depends="compile">
+  <target name="check" depends="compile">
     <echo message="There are no tests yet." />
   </target>
 
