@@ -42,6 +42,8 @@
 
   </target>
 
+  <target name="test" depends="check" />
+
   <target name="clean">
     <echo message="Deleting build/" />
     <delete dir="${blddir}" />
