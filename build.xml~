@@ -5,28 +5,41 @@
   <property name="classdir" location="${blddir}/classes" />
   <property name="jardir" location="${blddir}/jar" />
 
+  <path id="junit.class.path">
+    <pathelement location="lib/junit.jar" />
+    <pathelement location="${classdir}" />
+  </path>
+
   <target name="init">
     <mkdir dir="${blddir}" />
     <mkdir dir="${classdir}" />
   </target>
 
   <target name="compile" depends="init">
-    <javac
-      srcdir="src"
-      destdir="${classdir}" />
+    <javac srcdir="src" destdir="${classdir}">
+      <classpath refid="junit.class.path" />
+    </javac>
   </target>
   
   <target name="link" depends="compile">
     <mkdir dir="${jardir}" />
     <jar destfile="${jardir}/DiscountStrategy.jar" basedir="${classdir}">
       <manifest>
-        <attribute name="Main-Class" value="Demo.class" />
+        <attribute name="Main-Class" value="Demo" />
       </manifest>
     </jar>
   </target>
 
   <target name="check" depends="compile">
-    <echo message="There are no tests yet." />
+    <junit printsummary="yes" haltonfailure="yes">
+      
+      <classpath refid="junit.class.path" />
+
+      <test name="DiscountStrategyTest"
+        haltonfailure="no" outfile="result" />
+
+    </junit>
+
   </target>
 
   <target name="clean">
