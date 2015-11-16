@@ -10,7 +10,7 @@
     <pathelement location="${classdir}" />
   </path>
 
-  <target name="init">
+  <target name="init" depends="clean">
     <mkdir dir="${blddir}" />
     <mkdir dir="${classdir}" />
   </target>
