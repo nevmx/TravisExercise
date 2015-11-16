@@ -34,7 +34,7 @@
     <junit printsummary="yes" haltonfailure="yes">
       
       <classpath refid="junit.class.path" />
-
+      <formatter type="brief" usefile="no" />
       <test name="DiscountStrategyTest"
         haltonfailure="no" outfile="result" />
 
