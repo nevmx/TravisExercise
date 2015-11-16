@@ -3,6 +3,7 @@
 <project name="DiscountStrategy" default="compile">
   <property name="blddir" location="build" />
   <property name="classdir" location="${blddir}/classes" />
+  <property name="jardir" location="${blddir}/jar" />
 
   <target name="init">
     <mkdir dir="${blddir}" />
@@ -14,8 +15,22 @@
       srcdir="src"
       destdir="${classdir}" />
   </target>
+  
+  <target name="link" depends="compile">
+    <mkdir dir="${jardir}" />
+    <jar destfile="${jardir}/DiscountStrategy.jar" basedir="${classdir}">
+      <manifest>
+        <attribute name="Main-Class" value="Demo.class" />
+      </manifest>
+    </jar>
+  </target>
 
   <target name="test" depends="compile">
-    
+    <echo message="There are no tests yet." />
+  </target>
+
+  <target name="clean">
+    <echo message="Deleting build/" />
+    <delete dir="${blddir}" />
   </target>
 </project>
