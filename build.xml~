@@ -20,7 +20,7 @@
     <mkdir dir="${jardir}" />
     <jar destfile="${jardir}/DiscountStrategy.jar" basedir="${classdir}">
       <manifest>
-        <attribute name="Main-Class" value="Demo" />
+        <attribute name="Main-Class" value="Demo.class" />
       </manifest>
     </jar>
   </target>
